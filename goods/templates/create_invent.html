@@ -1,0 +1,14 @@
+<form method="POST" action=".">
+    {% csrf_token %}
+    <h2>Creating an inventory</h2>
+        <input type="text" name="name">
+        <input type="number" name="inventory_number">
+        <select name="category">
+            {% for cat in categories %}
+            <option value="{{cat.id}}">{{cat.name}}</option>
+            {% endfor %}
+        </select>
+        <input type="number" name="initial_cost"></input>
+        <input type="number" name="residual_value">
+    <button type="submit">Create</button>
+</form>

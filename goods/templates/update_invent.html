@@ -1,0 +1,18 @@
+<form method="POST" action=".">
+    {% csrf_token %}
+    <h2>Update an inventory</h2>
+    <p>Inventory name:</p>
+        <input value="{{ single_emp.name}}" type="text" name="name">
+        <p>Inventory number:</p>
+        <input value="{{ single_emp.inventory_number}}" type="number" name="inventory_number">
+        <select name="category">
+            {% for cat in categories %}
+            <option value="{{cat.id}}">{{cat.name}}</option>
+            {% endfor %}
+        </select>
+        <p>Initial cost:</p>
+        <input value="{{ single_emp.initial_cost }}" type="number" name="initial_cost"></input>
+        <p>Residual value:</p>
+        <input value="{{ single_emp.residual_value }}" type="number" name="residual_value">
+    <button type="submit">Update</button>
+</form>
